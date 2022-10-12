@@ -22,7 +22,7 @@ public class WebController {
         return "index";
     }
     
-    @PostMapping("/saveDetails")                     // it only support port method
+    @PostMapping("/saveDetails")                     
     public String saveDetails(@RequestParam("user1") String userName,
                               @RequestParam("user2") String userName2,
                               @RequestParam("office") String office,
@@ -30,15 +30,15 @@ public class WebController {
                               ModelMap modelMap) {
     	
     	
-    	String formEmail = "sample@test,com";
-    	formEmail = formatEmail(userName,userName2,department,office);
-        // write your code to save details
+    	
+    	String formEmail = formatEmail(userName,userName2,department,office);
+        
         modelMap.put("Name", userName);
         modelMap.put("Surname", userName2);
         modelMap.put("Office", office);
         modelMap.put("Department", department);
         modelMap.put("Email", formEmail);
-        return "emailFormat";           // welcome is view name. It will call welcome.jsp
+        return "emailFormat";           
     }
     
     private String formatEmail(String userName,String userName2, String dept, String office) {
@@ -81,9 +81,6 @@ public class WebController {
     
     private void loadData() {
 
-
-	    // Inserting the Elements 
-	    // using put() method 
     	htOffice.put(1, "Milan"); 
     	htOffice.put(2, "Spain"); 
     	htOffice.put(3, "New York"); 
